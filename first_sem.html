@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        /* Добавим стили для чекбоксов */
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Стили для навигации по странице */
+        .page-nav {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background-color: rgba(52, 53, 65, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .page-nav a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #ececf1;
+            background-color: rgba(68, 70, 84, 0.7);
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .page-nav a:hover, .page-nav a.active {
+            background-color: rgba(64, 65, 79, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .page-nav {
+                position: static;
+                transform: none;
+                background-color: transparent;
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            .page-nav a {
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 0;
+            }
+        }
+
+        /* Анимация для заголовка H1 */
+        #mainHeader {
+            transition: transform 0.3s ease;
+        }
+
+        #mainHeader:hover {
+            transform: scale(1.1);
+        }
+
+        /* Анимация для параграфа */
+        .animated-paragraph {
+            transition: background-color 0.5s ease;
+        }
+
+        /* Анимация для таблицы лекций */
+        #lectures {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Анимация для фотографии студента */
+        #studentPhoto {
+            transition: transform 0.5s ease;
+        }
+
+        #studentPhoto:hover {
+            transform: rotate(360deg);
+        }
+
+        /* Анимация для сообщения о отправке формы */
+        #formMessage {
+            opacity: 0;
+            transition: opacity 0.5s ease, color 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="mainHeader">Группа ЭФБО-06-23</h1>
+    <h2>Третьяков Илья</h2>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="first_sem.html">Первый семестр</a>
+    <a href="second_sem.html">Второй семестр</a>
+    <a href="services.html">Услуги</a>
+    <a href="registration.html">Авторизация</a>
+</nav>
+
+<div class="page-nav">
+    <a href="#lectures">Лекции</a>
+    <a href="#practices">Практики</a>
+    <a href="#map">Карта</a>
+</div>
+
+<main>
+    <h1>Первый семестр</h1>
+    <p class="animated-paragraph">Это анимированный параграф. Кликните, чтобы изменить цвет фона.</p>
+
+    <button id="showLecturesButton">Показать лекции</button>
+
+    <section id="lectures">
+        <h2>Лекции</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Номер</th>
+                <th>Тема</th>
+                <th>Посещение</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Основы языка HTML</td>
+                <td><input type="checkbox" checked></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Углубленное изучение HTML</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Основы работы с CSS</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Адаптивная верстка: Flexbox и Grid Layout</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Bootstrap — работа с фреймворком</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Основы языка JavaScript</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Работа с DOM и событиями в JavaScript</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Введение в GitHub и GitHub Pages</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="practices">
+        <h2>Практики</h2>
+        <h3>Первый семестр</h3>
+        <table id="firstSemesterPractices">
+            <thead>
+            <tr>
+                <th>Номер</th>
+                <th>Тема</th>
+                <th>Посещение</th>
+                <th>Выполнение</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Основы языка HTML</td>
+                <td><input type="checkbox" checked></td>
+                <td><input type="checkbox" checked></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Формы и кнопки в HTML</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Таблицы и интерактивные элементы HTML</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Основы работы с CSS</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Работа с классами в CSS</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Работа с сетками и разметкой в HTML</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Адаптивная верстка</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Bootstrap</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Основы языка JavaScript</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Базовые задачи на JS</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>DOM-структура приложений
+            <tr>
+                <td>11</td>
+                <td>DOM-структура приложений и работа с объектами на языке JS</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Встраивание скриптов</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Отладка сценариев</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Анимации и работа с ними</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>GitHub</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Защита проекта</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Второй семестр</h3>
+        <button id="showSecondSemesterPractices">Посмотреть практики второго семестра</button>
+        <table id="secondSemesterPractices" style="display: none;">
+            <thead>
+            <tr>
+                <th>Номер</th>
+                <th>Тема</th>
+                <th>Посещение</th>
+                <th>Выполнение</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Эта часть будет заполнена с помощью JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <img id="studentPhoto" src="path_to_student_photo.jpg" alt="Фото студента" style="width: 200px; height: 200px;">
+
+    <form id="myForm">
+        <input type="text" placeholder="Ваше имя">
+        <button type="submit">Отправить</button>
+    </form>
+    <p id="formMessage"></p>
+
+    <section id="map">
+        <h2>Интерактивная Яндекс карта</h2>
+        <iframe src="https://yandex.ru/map-widget/v1/-/CDHdMWOy" width="600" height="400" frameborder="0"
+                allowfullscreen></iframe>
+    </section>
+</main>
+
+<footer>
+    © Третьяков Илья, 2024
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Плавная прокрутка к секциям
+        document.querySelectorAll('.page-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Подсветка активного пункта навигации при прокрутке
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('main h2');
+            const navLinks = document.querySelectorAll('.page-nav a');
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Сохранение состояния чекбоксов в localStorage
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            const id = checkbox.id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+            checkbox.id = id;
+
+            // Загрузка состояния при загрузке страницы
+            const savedState = localStorage.getItem(id);
+            if (savedState !== null) {
+                checkbox.checked = JSON.parse(savedState);
+            }
+
+            // Сохранение состояния при изменении
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(id, JSON.stringify(checkbox.checked));
+            });
+        });
+
+        // Анимация для заголовка H1
+        const mainHeader = document.getElementById('mainHeader');
+        mainHeader.addEventListener('click', function () {
+            alert("Вы кликнули на заголовок - так держать!");
+        });
+
+        // Анимация для параграфа
+        const animatedParagraph = document.querySelector('.animated-paragraph');
+        animatedParagraph.addEventListener('click', function () {
+            this.style.backgroundColor = this.style.backgroundColor === 'lightblue' ? '' : 'lightblue';
+        });
+
+        // Показать/скрыть таблицу лекций
+        const showLecturesButton = document.getElementById('showLecturesButton');
+        const lecturesSection = document.getElementById('lectures');
+        showLecturesButton.addEventListener('click', function () {
+            if (lecturesSection.style.display === 'none') {
+                lecturesSection.style.display = 'block';
+                setTimeout(() => {
+                    lecturesSection.style.opacity = '1';
+                }, 10);
+            } else {
+                lecturesSection.style.opacity = '0';
+                setTimeout(() => {
+                    lecturesSection.style.display = 'none';
+                }, 500);
+            }
+        });
+
+        // Обработчик для кнопки "Посмотреть практики второго семестра"
+        const showSecondSemesterButton = document.getElementById('showSecondSemesterPractices');
+        const secondSemesterTable = document.getElementById('secondSemesterPractices');
+
+        const secondSemesterPractices = [
+            "Базовое бэкенд-приложение",
+            "HTTP-запросы",
+            "JSON и работа с ним",
+            "HTTP-ответы",
+            "Проектирование API",
+            "Роутинг и его настройка",
+            "NoSQL базы данных",
+            "Обеспечение авторизации и доступа пользователей",
+            "Работа сторонних сервисов уведомления и авторизации",
+            "Основы ReactJS",
+            "Работа с компонентами динамической DOM",
+            "Использование хуков в React",
+            "Основы микросервисной архитектуры",
+            "Разработка классических модулей веб-приложений",
+            "Разработка классических модулей веб-приложений"
+        ];
+
+        showSecondSemesterButton.addEventListener('click', function () {
+            if (secondSemesterTable.style.display === 'none') {
+                let tableBody = secondSemesterTable.querySelector('tbody');
+                tableBody.innerHTML = ''; // Очищаем таблицу перед заполнением
+
+                secondSemesterPractices.forEach((practice, index) => {
+                    let row = tableBody.insertRow();
+                    row.insertCell(0).textContent = index + 1;
+                    row.insertCell(1).textContent = practice;
+                    row.insertCell(2).innerHTML = '<input type="checkbox">';
+                    row.insertCell(3).innerHTML = '<input type="checkbox">';
+                });
+
+                secondSemesterTable.style.display = 'table';
+                this.textContent = 'Скрыть практики второго семестра';
+            } else {
+                secondSemesterTable.style.display = 'none';
+                this.textContent = 'Посмотреть практики второго семестра';
+            }
+        });
+
+        // Отладка сценариев
+        console.log('Все скрипты загружены успешно');
+
+        // Функция для проверки работы обработчиков событий
+        function testEventHandlers() {
+            console.log('Тестирование обработчиков событий:');
+            console.log('- Кликните на заголовок H1');
+            console.log('- Нажмите кнопку "Посмотреть практики второго семестра"');
+        }
+
+        // Вызов функции тестирования
+        testEventHandlers();
+    });
+</script>
+</body>
+</html>

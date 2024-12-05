@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-nav {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background-color: rgba(52, 53, 65, 0.5); /* Полупрозрачный фон */
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .page-nav a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #ececf1;
+            background-color: rgba(68, 70, 84, 0.7); /* Полупрозрачный фон кнопок */
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .page-nav a:hover, .page-nav a.active {
+            background-color: rgba(64, 65, 79, 0.9); /* Более непрозрачный фон при наведении и активации */
+        }
+
+        @media (max-width: 768px) {
+            .page-nav {
+                position: static;
+                transform: none;
+                background-color: transparent;
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            .page-nav a {
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Группа ЭФБО-06-23</h1>
+    <h2>Третьяков Илья</h2>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="first_sem.html">Первый семестр</a>
+    <a href="second_sem.html">Второй семестр</a>
+    <a href="services.html">Услуги</a>
+    <a href="registration.html">Авторизация</a>
+</nav>
+
+<div class="page-nav">
+    <a href="#about">Обо мне</a>
+    <a href="#frontend">Фронтенд</a>
+    <a href="#backend">Бэкенд</a>
+</div>
+
+
+<div class="main-content">
+
+    <main>
+        <section id="about">
+            <h1>Добро пожаловать на мой сайт</h1>
+            <div>
+                <img src="tupavadous.png" class="profile-pic" alt="Профильное фото">
+            </div>
+            <p>Меня зовут Третьяков Илья и я начинающий специалист по веб-разработке.</p>
+        </section>
+
+        <section id="frontend">
+            <h2>Фронтенд</h2>
+            <p>Фронтенд (или клиентская часть) — это то, что видит пользователь. Он включает в себя все визуальные
+                элементы
+                веб-сайта или приложения: кнопки, формы, изображения и текст. Фронтенд разработчики используют языки
+                разметки и стилизации, такие как HTML, CSS и JavaScript, чтобы создавать интерактивные и привлекательные
+                интерфейсы. Основная задача фронтенда — обеспечить удобство использования и эстетическую
+                привлекательность.</p>
+
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/GQJrzIJEsJ0" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+
+        </section>
+
+        <section id="backend">
+            <h2>Бэкенд</h2>
+            <p>Бэкенд (или серверная часть) — это "за кулисами" веб-приложения. Он отвечает за обработку данных,
+                управление
+                пользователями и взаимодействие с базами данных. Бэкенд разработчики используют языки программирования,
+                такие как Python, Ruby, Java или PHP, а также фреймворки и базы данных для создания логики приложения.
+                Основная задача бэкенда — обеспечить стабильную работу приложения и безопасность данных.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/EcCZ18wj6Mw" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© Третьяков Илья, 2024</p>
+    </footer>
+
+    <script>
+        // Плавная прокрутка к секциям
+        document.querySelectorAll('.page-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Подсветка активного пункта навигации при прокрутке
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('.page-nav a');
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</div>
+</body>
+</html>

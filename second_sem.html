@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="style1.css"> <!-- Подключение CSS файла -->
+    <style>
+        body {
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+            background-color: #343541; /* Фон */
+            color: #ececf1;
+        }
+
+        header {
+            background-color: #24292e;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        nav {
+            background-color: #24292e;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #40414f;
+        }
+
+        #loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .loader {
+            border: 5px solid #40414f;
+            border-top: 5px solid #58a6ff; /* Цвет ссылок */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #result {
+            color: #f85149; /* Красный цвет */
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Группа ЭФБО-06-23</h1>
+    <h2>Третьяков Илья</h2>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="first_sem.html">Первый семестр</a>
+    <a href="second_sem.html">Второй семестр</a>
+    <a href="services.html">Услуги</a>
+    <a href="registration.html">Авторизация</a>
+</nav>
+
+<div id="loader-container">
+    <div class="loader"></div>
+</div>
+<div id="result">Отказано</div>
+
+<script>
+    setTimeout(function() {
+        document.getElementById('loader-container').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+    }, 5000);
+</script>
+
+</body>
+</html>

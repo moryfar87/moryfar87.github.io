@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="style5.css"> <!-- Подключение CSS файла -->
+</head>
+<body>
+
+<header>
+    <h1>Группа ЭФБО-06-23</h1>
+    <h2>Третьяков Илья</h2>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a> <!-- Ссылка на главную страницу -->
+    <a href="first_sem.html">Первый семестр</a>
+    <a href="second_sem.html">Второй семестр</a>
+    <a href="services.html">Услуги</a> <!-- Ссылка на страницу услуг -->
+    <a href="registration.html">Авторизация</a> <!-- Ссылка на страницу авторизации -->
+</nav>
+
+<div class="container">
+    <h1>Разработка веб-приложения</h1>
+    <p>Заполните форму и мы обязательно свяжемся с вами</p>
+    <form action="#" method="post">
+        <label for="name">Как вас зовут</label>
+        <input type="text" id="name" name="name" placeholder="Квопонот Июха Ромыч" required>
+
+        <label for="email">Ваш e-mail</label>
+        <input type="email" id="email" name="email" placeholder="@mail.ru" required>
+
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" name="phone" placeholder="+7" required>
+
+        <label for="country">Страна</label>
+        <select id="country" name="country">
+            <option value="Россия">Россия</option>
+            <option value="Беларусь">Беларусь</option>
+            <option value="Казахстан">Казахстан</option>
+            <option value="Япония">Япония</option>
+            <option value="Другие">Другие</option>
+        </select>
+
+        <label for="date">Дата</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="comments">Комментарий</label>
+        <textarea id="comments" name="comments" rows="4" placeholder="Ваши комментарии..."></textarea>
+
+        <div class="checkbox">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">Согласен на обработку моих персональных данных</label>
+        </div>
+
+            <button type="submit" id="submitButton" disabled>Отправить заявку</button>
+        </form>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const consentCheckbox = document.getElementById('consent');
+    const submitButton = document.getElementById('submitButton');
+
+    consentCheckbox.addEventListener('change', function() {
+        submitButton.disabled = !this.checked;
+    const form = document.getElementById('myForm');
+
+    let formData = {
+        name: '',
+        email: '',
+        phone: '',
+        date: '',
+        comment: '',
+        printData: function() {
+            console.log(`Имя: ${this.name}`);
+            console.log(`E-mail: ${this.email}`);
+            console.log(`Телефон: ${this.phone}`);
+            console.log(`Дата: ${this.date}`);
+            console.log(`Комментарий: ${this.comment}`);
+        }
+    };
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    function submitForm(event) {
+        event.preventDefault();
+
+        formData.name = document.getElementById('name').value;
+        formData.email = document.getElementById('email').value;
+        formData.phone = document.getElementById('phone').value;
+        formData.date = document.getElementById('date').value;
+        formData.comment = document.getElementById('comments').value;
+
+        if (!formData.name || !formData.email || !formData.comment) {
+            alert('Пожалуйста, заполните все обязательные поля (имя, email, комментарий)');
+            return;
+        }
+
+        if (!/^\d+$/.test(formData.phone)) {
+            alert('Телефон должен содержать только цифры');
+            return;
+        }
+
+        if (!validateEmail(formData.email)) {
+            alert('Пожалуйста, введите корректный email');
+            return;
+        }
+
+        formData.printData();
+    }
+
+    consentCheckbox.addEventListener('change', function() {
+        submitButton.disabled = !this.checked;
+    });
+
+    form.addEventListener('submit', submitForm);
+});
+
+});
+</script>
+</body>
+</html>
