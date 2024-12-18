@@ -4,46 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой сайт</title>
-    <link rel="stylesheet" href="style4.css"> <!-- Подключение CSS файла -->
+    <link rel="stylesheet" href="style4.css">
 </head>
 <body>
+    <header>
+        <h1 class="main-heading">Группа ЭФБО-06-23</h1>
+        <h2 class="sub-heading">Третьяков Илья</h2>
+    </header>
 
-<header>
-    <div>Группа: ЭФБО-06-23</div>
-    <div>Третьяков Илья</div>
-</header>
+    <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="first_sem.html">Первый семестр</a>
+        <a href="second_sem.html">Второй семестр</a>
+        <a href="services.html">Услуги</a>
+    </nav>
 
-<nav>
-    <a href="index.html">Главная</a> <!-- Ссылка на главную страницу -->
-    <a href="first_sem.html">Первый семестр</a>
-    <a href="second_sem.html">Второй семестр</a>
-    <a href="services.html">Услуги</a> <!-- Ссылка на страницу услуг -->
-    <a href="registration.html">Авторизация</a> <!-- Ссылка на страницу авторизации -->
-</nav>
+    <main>
+        <h1>Разработка веб-приложений</h1>
 
-<main>
-    <h1>Разработка веб-приложений</h1>
-
-    <div class="projects">
-        <div class="project">
-            <img src="визитка.png" alt="Сайт-визитка">
-            <h2>Сайт-визитка</h2>
+        <div class="grid-container">
+            <div class="grid-item"><h2>.</h2><p>..</p><img src="2955487260378327_8002.jpg" alt="Изображение 1"></div>
+            <div class="grid-item"><h2>кооперативный сайт</h2><p>..</p><img src="802230d24e2301c3ffd5bf5ae910e2d4.jpg" alt="Изображение 2"></div>
+            <div class="grid-item"><h2>интернет магазин</h2><p>..</p><img src="81f6a56c2c0359938b67419fa436868a.jpg" alt="Изображение 3"></div>
+            <div class="grid-item"><h2>фронтенд</h2><p>..</p><img src=".vscode/i.webp" alt="Изображение 4"></div>
+            <div class="grid-item"><h2>бекенд</h2><p>..</p><img src=".vscode/i.webp" alt="Изображение 4"></div>
         </div>
-        <div class="project">
-            <img src="сайт.png" alt="Корпоративный сайт">
-            <h2>Корпоративный сайт</h2>
+
+        <div class="product-container">
+            <div class="product-card">
+                <h3>kulek</h3>
+                <p>akulek</p>
+                <button class="open-form">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>kulek</h3>
+                <p>akulek</p>
+                <button class="open-form">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>kulek</h3>
+                <p>akulek</p>
+                <button class="open-form">Купить</button>
+            </div>
         </div>
-        <div class="project">
-            <img src="magazinexd.png" alt="Интернет-магазин">
-            <h2>Интернет-магазин</h2>
+    </main>
+
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">×</span>
+
+            <form id="registrationForm" action="submitForm.html" method="post" onsubmit="submitForm(event)">
+                <h1 class="main-heading">Заполните форму</h1>
+                <label for="name" class="form-label">Как вас зовут</label>
+                <input type="text" id="name" name="name" placeholder="Квопонот Июха Ромыч" required class="form-input">
+
+                <label for="email" class="form-label">Ваш e-mail</label>
+                <input type="email" id="email" name="email" placeholder=".....@mail.ru" required class="form-input">
+
+                <label for="phone" class="form-label">Телефон</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 000 000 00 00" required class="form-input">
+
+                <label for="country" class="form-label">Страна</label>
+                <select id="country" name="country" class="form-select">
+                    <option value="Россия">Россия</option>
+                    <option value="Беларусь">Беларусь</option>
+                    <option value="Казахстан">Казахстан</option>
+                    <option value="Грузия">Грузия</option>
+                    <option value="Другие">Другие</option>
+                </select>
+
+                <label for="date" class="form-label">Дата</label>
+                <input type="date" id="date" name="date" required class="form-input">
+
+                <label for="comments" class="form-label">Комментарий</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Ваши комментарии..." class="form-textarea"></textarea>
+
+                <div class="checkbox">
+                    <input type="checkbox" id="consent" name="consent" required class="form-checkbox">
+                    <label for="consent" class="checkbox-label">Согласен на обработку моих персональных данных</label>
+                </div>
+
+                <button type="submit" class="submit-button">Отправить заявку</button>
+            </form>
         </div>
     </div>
 
-</main>
+    <script>
 
-<footer>
-    © Третьяков Илья, 2024
-</footer>
+        document.querySelectorAll('.open-form').forEach(button => {
+            button.addEventListener('click', () => {
+                document.getElementById('modal').style.display = 'flex';
+            });
+        });
 
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+
+        function submitForm(event) {
+            event.preventDefault();
+            alert("Форма успешно отправлена!");
+            closeModal();
+            window.location.href = 'auth.html';
+        }
+    </script>
 </body>
 </html>

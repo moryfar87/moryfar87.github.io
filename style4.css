@@ -14,97 +14,257 @@ header {
     padding: 1rem;
 }
 
-header div {
-    margin: 0.5rem 0;
-}
-
 nav {
     background-color: #24292e;
     padding: 0.5rem;
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 
 nav a {
-    color: #fff;
+    color: #ececf1;
     text-decoration: none;
     padding: 0.5rem 1rem;
     margin: 0 0.5rem;
     border-radius: 6px;
     transition: background-color 0.3s;
+    font-weight: bold;
 }
 
 nav a:hover {
-    background-color: #40414f; /* Цвет при наведении в стиле ChatGPT */
+    background-color: #40414f;
 }
 
 main {
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 2rem;
-}
-
-h1 {
-    color: #ececf1;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.projects {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.project {
-    background-color: #444654; /* Цвет блока сообщений ChatGPT */
+    padding: 2rem;
+    background-color: #444654;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin: 1rem;
-    padding: 1rem;
-    width: calc(33.333% - 2rem);
+}
+
+h1, h2, h3 {
+    color: #ececf1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #40414f;
+    padding: 20px;
     text-align: center;
-    transition: transform 0.3s;
+    border-radius: 10px;
+    position: relative;
 }
 
-.project:hover {
-    transform: translateY(-5px);
-}
-
-.project img {
-    max-width: 100%;
+.grid-item img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
     border-radius: 5px;
-    margin-bottom: 1rem;
 }
 
-.project h2 {
-    color: #58a6ff; /* Цвет ссылок GitHub */
-    margin-top: 0;
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 20px;
+}
+
+.product-card {
+    flex: 0 1 calc(33.333% - 20px);
+    background-color: #40414f;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card button {
+    background-color: #58a6ff;
+    color: #ececf1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: #3178c6;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #444654;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    color: #ececf1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ececf1;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    background-color: #40414f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #58a6ff;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #ececf1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #565869;
+    border-radius: 6px;
+    background-color: #343541;
+    color: #ececf1;
+}
+
+button {
+    background-color: #58a6ff;
+    color: #ececf1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3178c6;
+}
+
+.checkbox {
+    margin: 10px 0;
+}
+
+.checkbox label {
+    color: #ececf1;
 }
 
 footer {
     background-color: #24292e;
-    color: #fff;
+    color: #ececf1;
     text-align: center;
     padding: 0.5rem;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     font-size: 0.9em;
 }
 
-@media (max-width: 768px) {
-    .project {
-        width: calc(50% - 2rem);
+@media (max-width: 800px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-card {
+        flex: 0 1 calc(50% - 20px);
     }
 }
 
-@media (max-width: 480px) {
-    .project {
-        width: 100%;
+@media (max-width: 500px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        flex: 0 1 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
     }
 
     nav a {
-        display: block;
-        margin: 0.5rem 0;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header h2 {
+        font-size: 1em;
+    }
+
+    nav a {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .container h1 {
+        font-size: 1.5em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea,
+    button {
+        padding: 8px;
     }
 }

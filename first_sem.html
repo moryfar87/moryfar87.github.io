@@ -5,94 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой сайт</title>
     <link rel="stylesheet" href="style2.css">
-    <style>
-        /* Добавим стили для чекбоксов */
-        input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Стили для навигации по странице */
-        .page-nav {
-            position: fixed;
-            top: 50%;
-            left: 20px;
-            transform: translateY(-50%);
-            background-color: rgba(52, 53, 65, 0.5);
-            padding: 10px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-
-        .page-nav a {
-            display: block;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #ececf1;
-            background-color: rgba(68, 70, 84, 0.7);
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        .page-nav a:hover, .page-nav a.active {
-            background-color: rgba(64, 65, 79, 0.9);
-        }
-
-        @media (max-width: 768px) {
-            .page-nav {
-                position: static;
-                transform: none;
-                background-color: transparent;
-                padding: 10px 0;
-                text-align: center;
-            }
-
-            .page-nav a {
-                display: inline-block;
-                margin-right: 10px;
-                margin-bottom: 0;
-            }
-        }
-
-        /* Анимация для заголовка H1 */
-        #mainHeader {
-            transition: transform 0.3s ease;
-        }
-
-        #mainHeader:hover {
-            transform: scale(1.1);
-        }
-
-        /* Анимация для параграфа */
-        .animated-paragraph {
-            transition: background-color 0.5s ease;
-        }
-
-        /* Анимация для таблицы лекций */
-        #lectures {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        /* Анимация для фотографии студента */
-        #studentPhoto {
-            transition: transform 0.5s ease;
-        }
-
-        #studentPhoto:hover {
-            transform: rotate(360deg);
-        }
-
-        /* Анимация для сообщения о отправке формы */
-        #formMessage {
-            opacity: 0;
-            transition: opacity 0.5s ease, color 0.5s ease;
-        }
-    </style>
 </head>
 <body>
 
@@ -106,7 +18,7 @@
     <a href="first_sem.html">Первый семестр</a>
     <a href="second_sem.html">Второй семестр</a>
     <a href="services.html">Услуги</a>
-    <a href="registration.html">Авторизация</a>
+
 </nav>
 
 <div class="page-nav">
@@ -311,7 +223,8 @@
     <img id="studentPhoto" src="path_to_student_photo.jpg" alt="Фото студента" style="width: 200px; height: 200px;">
 
     <form id="myForm">
-        <input type="text" placeholder="Ваше имя">
+        <label for="nameInput">Ваше имя</label>
+        <input type="text" id="nameInput" placeholder="Введите ваше имя">
         <button type="submit">Отправить</button>
     </form>
     <p id="formMessage"></p>
@@ -460,6 +373,16 @@
             console.log('- Кликните на заголовок H1');
             console.log('- Нажмите кнопку "Посмотреть практики второго семестра"');
         }
+
+        const myForm = document.getElementById('myForm');
+        const formMessage = document.getElementById('formMessage');
+
+        myForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('nameInput').value;
+            formMessage.textContent = `Спасибо, ${name}! Ваша форма отправлена.`;
+            this.reset();
+        });
 
         // Вызов функции тестирования
         testEventHandlers();
