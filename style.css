@@ -178,3 +178,31 @@ footer {
     width: 100%;
     height: 100%;
 }
+@media (max-width: 768px) {
+    .page-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-nav a {
+        margin-bottom: 0.5rem;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-pic {
+        max-width: 150px;
+    }
+
+    h1, h2 {
+        font-size: 1.2rem;
+    }
+}

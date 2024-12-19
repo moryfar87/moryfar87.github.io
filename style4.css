@@ -268,3 +268,39 @@ footer {
         padding: 8px;
     }
 }
+@media screen and (max-width: 768px) {
+    .main-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-nav a {
+        margin: 0.5rem 0;
+    }
+
+    .product-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-heading {
+        font-size: 1.5rem;
+    }
+
+    .sub-heading {
+        font-size: 1.2rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
